@@ -34,3 +34,15 @@ resource "github_repository_tag_protection" "github-management-tag-protection" {
     repository      = github_repository.github-management.name
     pattern         = "v*"
 }
+
+# Add a repository to the team
+resource "github_team" "some_team" {
+  name        = "SomeTeam"
+  description = "Some cool team"
+}
+
+resource "github_team_repository" "some_team_repo" {
+  team_id    = github_team.some_team.id
+  repository = github_repository.github-management.name
+  permission = "pull"
+}
