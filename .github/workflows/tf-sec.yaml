@@ -1,24 +1,28 @@
-name: Checkov Checks on Terraform Code
-## SEE https://github.com/aquasecurity/tfsec  
-# Only trigger, when the build workflow succeeded
+name: Checkov Terraform security scan
+    
 on:
-  workflow_run:
-    workflows: ["Tfsec Checks on Terraform Code"]
-    types:
-      - completed
-      
-permissions: read-all
+  push:
+    branches:
+      - '*'
+
+# Only trigger, when the build workflow succeeded
+# SEE https://github.com/bridgecrewio/checkov
+#on:
+#  workflow_run:
+#    workflows: ["Tfsec Checks on Terraform Code"]
+#    types:
+#      - completed     
+#permissions: read-all
       
 jobs:
-  checkov-checks:
+  tfsec-checks:
       runs-on: ubuntu-latest
       steps:
-      
- # Checkout Repository
+    
+# Checkout Repository
       - name : Check out Git Repository
         uses: actions/checkout@v2
       
-# Checkov - Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code
-      - name: Run Checkov
-        run: |
-           docker run -t -v ${{ github.workspace }}:/tf --workdir /tf bridgecrew/checkov --directory /tf --skip-check CKV2_GHA_1
+# Tfsec - Security scanner for your Terraform code
+      - name: Run Tfsec
+        uses: aquasecurity/tfsec-action@v1.0.0
