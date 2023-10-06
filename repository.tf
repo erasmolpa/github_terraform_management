@@ -24,10 +24,10 @@ resource "github_repository" "github-management" {
   topics             = ["config", "terraform"]
 }
 resource "github_branch_protection" "github-management-branch-protection" {
-  repository_id    = github_repository.github-management.node_id
-  pattern          = "main"
-  enforce_admins   = true
-  allows_deletions = false
+  repository_id          = github_repository.github-management.node_id
+  pattern                = "main"
+  enforce_admins         = true
+  allows_deletions       = false
   require_signed_commits = true
 }
 resource "github_repository_tag_protection" "github-management-tag-protection" {
