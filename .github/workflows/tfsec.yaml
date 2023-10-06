@@ -1,5 +1,5 @@
 name: Checkov Checks on Terraform Code
-    
+## SEE https://github.com/aquasecurity/tfsec  
 # Only trigger, when the build workflow succeeded
 on:
   workflow_run:
