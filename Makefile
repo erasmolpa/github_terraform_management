@@ -27,11 +27,14 @@ apply:
 
 destroy:
 	terraform destroy --auto-approve
-	
+
+tf-security-check:
+	docker run --rm -it -v "$(pwd):/src" aquasec/tfsec /src
+
 # tools url:
 # https://github.com/shihanng/tfvar Install -> brew install shihanng/tfvar/tfvar
 # https://github.com/terraform-docs/terraform-docs Install -> brew install terraform-docs
-docs:
+tf-docs:
 	docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-docs/terraform-docs:0.16.0 markdown /terraform-docs > MODULE.md
 
 ## SEE https://github.com/nektos/act
