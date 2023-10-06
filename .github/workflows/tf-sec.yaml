@@ -1,4 +1,4 @@
-name: Checkov Terraform security scan
+name: Terraform Security Scan
     
 on:
   push:
