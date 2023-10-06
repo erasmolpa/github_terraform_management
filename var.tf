@@ -5,7 +5,7 @@ variable "github_token" {
   default   = "XXXX"
 }
 
-variable "github_organization" {
+variable "github_owner" {
   type    = string
-  default = "org"
+  default = "erasmolpa"
 }
