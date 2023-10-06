@@ -28,7 +28,7 @@ resource "github_branch_protection" "github-management-branch-protection" {
   pattern          = "main"
   enforce_admins   = true
   allows_deletions = false
-
+  require_signed_commits = true
 }
 resource "github_repository_tag_protection" "github-management-tag-protection" {
   repository = github_repository.github-management.name
