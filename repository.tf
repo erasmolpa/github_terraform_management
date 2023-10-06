@@ -23,3 +23,14 @@ resource "github_repository" "github-management" {
   is_template        = true
   topics             = ["config", "terraform"]
 }
+resource "github_branch_protection" "github-management-branch-protection" {
+  repository_id = github_repository.github-management.node_id
+  pattern          = "main"
+  enforce_admins   = true
+  allows_deletions = false
+
+}
+resource "github_repository_tag_protection" "github-management-tag-protection" {
+    repository      = github_repository.github-management.name
+    pattern         = "v*"
+}
