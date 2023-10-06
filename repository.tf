@@ -1,8 +1,8 @@
 
 resource "github_repository" "github-management" {
-  name               = "repo-created-with-terraform"
-  description        = "Terraform based repository"
-  visibility         = "internal"
+  name        = "repo-created-with-terraform"
+  description = "Terraform based repository"
+  visibility  = "internal"
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -24,15 +24,15 @@ resource "github_repository" "github-management" {
   topics             = ["config", "terraform"]
 }
 resource "github_branch_protection" "github-management-branch-protection" {
-  repository_id = github_repository.github-management.node_id
+  repository_id    = github_repository.github-management.node_id
   pattern          = "main"
   enforce_admins   = true
   allows_deletions = false
 
 }
 resource "github_repository_tag_protection" "github-management-tag-protection" {
-    repository      = github_repository.github-management.name
-    pattern         = "v*"
+  repository = github_repository.github-management.name
+  pattern    = "v*"
 }
 
 # Add a repository to the team
