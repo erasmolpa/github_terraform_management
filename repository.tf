@@ -2,7 +2,7 @@
 # Add a user to the organization
 resource "github_membership" "erasmolpa" {
   username = "erasmolpa"
-  role     = "admin"   # or "admin" for an org owner
+  role     = "admin" # or "admin" for an org owner
 }
 resource "github_team" "my-team" {
   name        = "my-team"
@@ -11,13 +11,13 @@ resource "github_team" "my-team" {
 
 #resource "github_owner" "my_team_membership" {
 
-  #team_id  = "${github_team.my-team.id}"
+#team_id  = "${github_team.my-team.id}"
 #  username = "erasmolpa"
- # role     = "admin"
+# role     = "admin"
 #}
 resource "github_repository" "github-management" {
-  name        = "demo-terraform-management"
-  description = "Terraform based repository"
+  name               = "demo-terraform-management"
+  description        = "Terraform based repository"
   private            = true
   has_issues         = true
   has_wiki           = false
@@ -31,7 +31,7 @@ resource "github_repository" "github-management" {
 }
 
 #resource "github_team_repository" "some_team_repo" {
-  #team_id    = "${github_team.my-team.id}"
+#team_id    = "${github_team.my-team.id}"
 #  repository = "${github_repository.some-repo.name}"
 #  permission = "pull"
 #}

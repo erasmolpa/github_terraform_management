@@ -1,11 +1,11 @@
 
 variable "github_token" {
-  type = string
+  type      = string
   sensitive = true
-  default = "XXXX"
+  default   = "XXXX"
 }
 
 variable "github_organization" {
-  type = string
+  type    = string
   default = "org"
 }

@@ -9,7 +9,7 @@ terraform {
 
 # Configure the GitHub Provider
 provider "github" {
-  organization = "${var.github_organization}"
-  token        = "${var.github_token}"
+  organization = var.github_organization
+  token        = var.github_token
   # Export the GITHUB_TOKEN as an environment variable
 }

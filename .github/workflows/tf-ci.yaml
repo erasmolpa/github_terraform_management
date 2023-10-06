@@ -1,0 +1,41 @@
+name: Terraform CI
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 1.0.0 # Reemplaza con la versión de Terraform que deseas usar
+
+    - name: Initialize Terraform
+      run: terraform init
+
+    - name: Validate Terraform code
+      run: terraform validate
+
+    - name: Format Terraform code
+      run: terraform fmt -check=true
+
+    ## 
+    ##  - name: Lint Terraform code
+    ##  run: tflint
+
+    - name: Plan Terraform changes
+      run: terraform plan -input=false -out=tfplan
+
+    #- name: Apply Terraform changes
+    #  run: terraform apply -input=false tfplan
+
+    #- name: Clean up
+    #  run: terraform destroy -input=false tfplan
