@@ -1,15 +1,18 @@
-name: Checkov Checks on Terraform Code
+name: Code Analysis Terraform scan
     
+on:
+  push:
+    branches:
+      - '*'
 
 # Only trigger, when the build workflow succeeded
 # SEE https://github.com/bridgecrewio/checkov
-on:
-  workflow_run:
-    workflows: ["Tfsec Checks on Terraform Code"]
-    types:
-      - completed
-      
-permissions: read-all
+#on:
+#  workflow_run:
+#    workflows: ["Tfsec Checks on Terraform Code"]
+#    types:
+#      - completed     
+#permissions: read-all
       
 jobs:
   checkov-checks:
