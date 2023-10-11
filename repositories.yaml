@@ -1,0 +1,20 @@
+repo_data:
+  - name: "repo1"
+    description: "Repositorio 1"
+    private: false
+    business_unit: "devops"
+    team: "devops"
+    app: "github"
+    component: "github_governance"
+    region: "uk"
+    environment: "dev"
+    backup_enabled: true
+
+  - name: "repo2"
+    description: "Repositorio 2"
+    private: true
+    business_unit: "sales"
+    app: "sales_app"
+    component: "sales_component"
+    region: "us"
+    environment: "prod"

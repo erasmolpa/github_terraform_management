@@ -6,3 +6,7 @@
 
 
 # github_terraform_management
+
+# Refs
+
+https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/build-integrity-policies/github-policies/ensure-github-repository-has-vulnerability-alerts-enabled

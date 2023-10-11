@@ -20,10 +20,11 @@ init:
 	terraform init
 
 plan:
-	terraform plan
+	terraform init
+    terraform plan -var="repo_data=$(cat repos.yaml | yq -y .)"
 
 apply:
-	terraform apply --auto-approve
+	terraform apply -var="repo_data=$(cat repos.yaml | yq -y .)"
 
 destroy:
 	terraform destroy --auto-approve
@@ -40,7 +41,4 @@ tf-docs:
 ## SEE https://github.com/nektos/act
 github-action-lint:
 	act
-
-terratest:
-	cd ./tests && go test
 

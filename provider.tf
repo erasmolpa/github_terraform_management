@@ -11,5 +11,4 @@ terraform {
 provider "github" {
   owner = var.github_owner
   token = var.github_token
-  # Export the GITHUB_TOKEN as an environment variable
 }
